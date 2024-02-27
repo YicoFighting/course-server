@@ -1,10 +1,8 @@
 const axios = require("axios");
-const { useCron } = require("./utils/useCron");
+// const { useCron } = require("./utils/useCron");
 const { calculateDayOfWeekInWeek, modifyCourseData } = require("./utils/tool");
 const { curriculums, curriculumTimes } = require("./utils/constant");
 const { generateHTML } = require("./utils/generateHTML");
-
-let test = false;
 
 const main = async () => {
   try {
@@ -97,7 +95,7 @@ const main = async () => {
 
     const sendContent = generateHTML(htmlInfo);
 
-    if (htmlInfo.content.length > 0 || !test) {
+    if (htmlInfo.content.length > 0) {
       test = true;
       const url = "http://www.pushplus.plus/send"; // 替换成你的目标URL
       const dataToSend = {
@@ -114,4 +112,4 @@ const main = async () => {
 };
 // 默认运行一次
 main();
-useCron(main);
+// useCron(main);
