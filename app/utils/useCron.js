@@ -2,7 +2,7 @@ const schedule = require("node-schedule");
 
 // Cron 风格
 const useCron = (fn) => {
-  schedule.scheduleJob("0 10,22 * * *", function () {
+  schedule.scheduleJob("0 2,14 * * *", function () {
     fn();
   });
 };
