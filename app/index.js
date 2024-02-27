@@ -25,10 +25,16 @@ const main = async () => {
       7: "周日",
     };
 
+    // 获取年、月、日
+    const year = targetDate.getFullYear();
+    const month = String(targetDate.getMonth() + 1).padStart(2, "0"); // 月份是从0开始的
+    const day = String(targetDate.getDate()).padStart(2, "0");
+
+    // 拼接成yyyy-mm-dd格式
+    const formattedDate = `${year}-${month}-${day}`;
+
     // 头部字符串
-    const header = `日期 ${targetDate.toLocaleDateString()} 是第 ${weekNumber} 周的${
-      comparisonTable[dayOfWeek]
-    }`;
+    const header = `日期 ${formattedDate} 是第 ${weekNumber} 周的${comparisonTable[dayOfWeek]}`;
 
     // 计算出来的课程数据
     let emptyArray = new Array(8).fill().map(() => new Array(7));

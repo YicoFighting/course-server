@@ -2,8 +2,8 @@ name: 定时执行脚本
 
 on:
   schedule:
-    # 每天UTC时间00:00执行，根据需要调整cron表达式
-    - cron: "28 13 * * *"
+    - cron: "0 2 * * *"
+    - cron: "0 14 * * *"
 
 jobs:
   run-script:
