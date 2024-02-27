@@ -2,7 +2,7 @@ name: 定时执行脚本
 
 on:
   schedule:
-    - cron: "10 2,14 * * *"
+    - cron: "13 14 * * *"
 
 jobs:
   run-script:
@@ -15,7 +15,7 @@ jobs:
       - name: 设置Node.js环境
         uses: actions/setup-node@v2
         with:
-          node-version: "14" # 指定Node.js版本
+          node-version: "18" # 指定Node.js版本
 
       - name: 安装依赖
         run: npm install
