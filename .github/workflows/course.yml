@@ -2,7 +2,7 @@ name: 课程
 
 on:
   schedule:
-    - cron: "29 14 * * *"
+    - cron: "0 2 * * *"
 
 jobs:
   run-script:
