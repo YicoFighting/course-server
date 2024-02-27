@@ -2,7 +2,7 @@ name: 定时执行脚本
 
 on:
   schedule:
-    - cron: "22 2,14 * * *"
+    - cron: "25 14 * * *"
 
 jobs:
   run-script:
