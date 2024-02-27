@@ -1,0 +1,25 @@
+name: 定时执行脚本
+
+on:
+  schedule:
+    # 每天UTC时间00:00执行，根据需要调整cron表达式
+    - cron: "28 13 * * *"
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v2
+
+      - name: 设置Node.js环境
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14" # 指定Node.js版本
+
+      - name: 安装依赖
+        run: npm install
+
+      - name: 执行脚本
+        run: node ./app/index.js
