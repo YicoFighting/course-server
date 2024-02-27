@@ -4,6 +4,8 @@ const { calculateDayOfWeekInWeek, modifyCourseData } = require("./utils/tool");
 const { curriculums, curriculumTimes } = require("./utils/constant");
 const { generateHTML } = require("./utils/generateHTML");
 
+let test = false;
+
 const main = async () => {
   try {
     // const targetDate = new Date(2024, 3, 30); // 假设要查询2024年2月29日是第几周的第几天
@@ -95,7 +97,8 @@ const main = async () => {
 
     const sendContent = generateHTML(htmlInfo);
 
-    if (htmlInfo.content.length > 0) {
+    if (htmlInfo.content.length > 0 || !test) {
+      test = true;
       const url = "http://www.pushplus.plus/send"; // 替换成你的目标URL
       const dataToSend = {
         token: "d79b2f864c4e4799aac3ed0c12a1ce4e",
@@ -109,4 +112,6 @@ const main = async () => {
     console.error("发送请求时出错 =>> ", error.message);
   }
 };
+// 默认运行一次
+main();
 useCron(main);
