@@ -1,8 +1,8 @@
-name: 定时执行脚本22-25
+name: 课程
 
 on:
   schedule:
-    - cron: "25 14 * * *"
+    - cron: "29 14 * * *"
 
 jobs:
   run-script:
