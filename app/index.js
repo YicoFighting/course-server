@@ -101,17 +101,19 @@ const main = async () => {
 
     const sendContent = generateHTML(htmlInfo);
 
+    test = true;
+    const url = "http://www.pushplus.plus/send"; // 替换成你的目标URL
+    const dataToSend = {
+      token: "d79b2f864c4e4799aac3ed0c12a1ce4e",
+      title: "明日课程提醒",
+      content: sendContent,
+    };
     if (htmlInfo.content.length > 0) {
-      test = true;
-      const url = "http://www.pushplus.plus/send"; // 替换成你的目标URL
-      const dataToSend = {
-        token: "d79b2f864c4e4799aac3ed0c12a1ce4e",
-        title: "明日课程提醒",
-        content: sendContent,
-        topic: "0328",
-      };
-      await axios.post(url, dataToSend);
+      dataToSend.topic = "0328";
+    } else {
+      dataToSend.title = "明日无课，可休息";
     }
+    await axios.post(url, dataToSend);
   } catch (error) {
     console.error("发送请求时出错 =>> ", error.message);
   }
