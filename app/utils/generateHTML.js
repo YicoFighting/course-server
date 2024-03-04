@@ -4,7 +4,8 @@ const generateItem = (item) => {
             <div>课程编号：${item.class}</div>
             <div>班级：<a href="https://www.course.xl-ctf.top/excel/${
               item.class
-            }.xls" target="_blank" style="text-decoration: none;">22产设U1班、22数媒U2班、22数媒U4班</a></div>
+            }.xls" target="_blank" style="text-decoration: none;">
+            ${item.classString}</a></div>
             <div>起始周：${item.startWeek} ~ ${item.endWeek}</div>
             <div>教室：${item.classroom}</div>
             <div>上课时间：${item.time.join(" ")}</div>
